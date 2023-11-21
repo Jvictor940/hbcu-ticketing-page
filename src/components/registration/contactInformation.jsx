@@ -1,5 +1,7 @@
 import React from "react";
 import FieldEntry from "../../form_components/FieldEntry/FieldEntry"
+import ECRadioButtonsGroup from "../../form_components/CheckField/EmergencyContactRadioButton";
+import ConsentRadioButtonsGroup from "../../form_components/CheckField/consentRadioButtonsGroup";
 
 const ContactInformation = () => {
     return (
@@ -18,6 +20,16 @@ const ContactInformation = () => {
             <FieldEntry title='Address'/>
 
             <h4>Emergency Contact</h4>
+            <ECRadioButtonsGroup />
+
+            <h4>Consent</h4>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores, obcaecati delectus, sit doloremque sequi quam aut repudiandae voluptate harum, facilis consectetur nisi saepe omnis! Nesciunt, sunt! Accusantium provident autem tenetur?</p>
+
+            <ConsentRadioButtonsGroup />
+
+
+
+            <button>Continue to Athlete Registration</button>
         </div>
     )
 }
