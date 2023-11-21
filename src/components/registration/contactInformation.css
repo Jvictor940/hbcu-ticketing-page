@@ -1,0 +1,32 @@
+.borderline {
+    border-top: 2px solid #FFA800;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.form {
+    width: 80%;
+    margin: auto; 
+}
+
+.guardian-information {
+    display: flex;
+    width: 30%;
+    flex-wrap: wrap;
+}
+
+.input-field {
+    display: inline-block;
+}
+
+.title {
+    color: #FFA800;
+}
+
+.wallpaper {
+    height: 250px;
+    width: 80%;
+    margin: auto;
+    background-image: url("../../images/multi-colored-spheres-sport-balls-galore-outdoors-generated-by-ai_188544-20013.avif"); 
+    /* background-repeat: no-repeat; */
+}

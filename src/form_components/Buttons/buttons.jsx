@@ -1,16 +1,19 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import { useNavigate } from 'react-router-dom';
 
-const ContainedButtons = () => {
+const ContainedButtons = ({ page }) => {
+  const navigate = useNavigate('/')
+
+  const contactInfo = () => {
+    navigate('/')
+  }
   return (
     <Stack direction="row" spacing={2}>
-      <Button variant="contained">Contained</Button>
-      <Button variant="contained" disabled>
-        Disabled
-      </Button>
-      <Button variant="contained" href="#contained-buttons">
-        Link
+      <Button variant="contained" onClick={contactInfo}>Back</Button>
+      <Button variant="contained" href="#contained-buttons" onClick={page}>
+        Next
       </Button>
     </Stack>
   );

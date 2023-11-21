@@ -20,7 +20,12 @@ const AthleteRegistration = () => {
 
             <h4>Athlete Information</h4>
             <FirstComponent />
-            <BasicSelect />
+            <BasicSelect title='Gender' />
+            <BasicSelect title='Position' />
+            <BasicSelect title='Size' />
+            <BasicSelect title='Grade' />
+            <FieldEntry title='ft'/>
+            <FieldEntry title='in'/>
 
             <h5>Ticket Options</h5>
 

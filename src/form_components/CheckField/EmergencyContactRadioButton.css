@@ -1,0 +1,9 @@
+.guardian-information {
+    display: flex;
+    width: 30%;
+    flex-wrap: wrap;
+}
+
+.input-field {
+    display: inline-block;
+}
