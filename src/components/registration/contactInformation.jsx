@@ -51,7 +51,7 @@ const ContactInformation = () => {
 
                 <ConsentRadioButtonsGroup />
 
-                <PrevNxtButtons page={athleteRegistrationPage} />
+                <PrevNxtButtons nxtPage={athleteRegistrationPage} />
             </div>
         </div>
     )

@@ -9,6 +9,10 @@ const GeneralAdmission = () => {
         navigate('/checkout')
     }
 
+    const athleteRegistration = () => {
+        navigate('/athleteRegistration')
+      }
+
     return (
         <div>
             <h2>General Admission</h2>
@@ -16,7 +20,7 @@ const GeneralAdmission = () => {
 
             <h4>Ticket Options</h4>
 
-            <PrevNxtButtons page={checkout} />
+            <PrevNxtButtons prevPage={athleteRegistration} nxtPage={checkout} />
             
         </div>
     )

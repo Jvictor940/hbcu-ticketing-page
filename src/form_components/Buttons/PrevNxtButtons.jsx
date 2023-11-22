@@ -1,18 +1,12 @@
 import React from 'react';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import { useNavigate } from 'react-router-dom';
 
-const PrevNxtButtons = ({ page }) => {
-  const navigate = useNavigate('/')
-
-  const contactInfo = () => {
-    navigate('/')
-  }
+const PrevNxtButtons = ({ nxtPage, prevPage }) => {
   return (
     <Stack direction="row" spacing={2}>
-      <Button variant="contained" onClick={contactInfo}>Back</Button>
-      <Button variant="contained" href="#contained-buttons" onClick={page}>
+      <Button variant="contained" onClick={prevPage}>Back</Button>
+      <Button variant="contained" href="#contained-buttons" onClick={nxtPage}>
         Next
       </Button>
     </Stack>

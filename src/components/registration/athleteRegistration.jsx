@@ -12,6 +12,10 @@ const AthleteRegistration = () => {
         navigate('/generalAdmission')
     }
 
+    const contactInfo = () => {
+        navigate('/')
+    }
+
     return(
         <div>
             <h2>Athlete Registration</h2>
@@ -38,7 +42,7 @@ const AthleteRegistration = () => {
 
             <p>Disclaimer | Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ut perferendis asperiores obcaecati libero quia accusantium, corporis velit similique saepe doloremque sed autem, modi quas atque magnam quidem sapiente. Doloribus.</p>
 
-            <PrevNxtButtons page={generalAdmission} />
+            <PrevNxtButtons prevPage={contactInfo} nxtPage={generalAdmission} />
 
         </div>
     )

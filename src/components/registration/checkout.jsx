@@ -11,6 +11,10 @@ const Checkout = () => {
         navigate('/congrats')
     }
 
+    const generalAdmission = () => {
+        navigate('/generalAdmission')
+    }
+
     return(
         <div>
             <h2>Check Out</h2>
@@ -21,7 +25,7 @@ const Checkout = () => {
             <FieldEntry title='CVV' />
             <FieldEntry title='Billing Address' />
 
-            <PrevNxtButtons page={congrats} />
+            <PrevNxtButtons prevPage={generalAdmission} nxtPage={congrats} />
         </div>
     )
 }
