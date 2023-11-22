@@ -1,8 +1,9 @@
 import ContactInformation from "./components/registration/ContactInformation";
 import AthleteRegistration from "./components/registration/AthleteRegistration";
-// import GeneralAdmission from "./components/registration/generalAdmission";
-// import CheckOut from "./components/registration/checkout";
-// import Congrats from "./components/registration/congrats";
+import GeneralAdmission from "./components/registration/GeneralAdmission";
+import Checkout from "./components/registration/Checkout";
+
+import Congrats from "./components/registration/Congrats";
 import {
   BrowserRouter as Router, 
   Routes, 
@@ -17,11 +18,11 @@ function App() {
         <Routes>
           <Route exact path="/" element={<ContactInformation />} />
           <Route exact path="/athleteRegistration" element={<AthleteRegistration />} />
+          <Route exact path="/generalAdmission" element={<GeneralAdmission />} />
+          <Route exact path="/checkout" element={<Checkout />} />
+          <Route exact path="/congrats" element={<Congrats />} />
         </Routes>
       </Router>
-      {/* <GeneralAdmission /> */}
-      {/* <CheckOut /> */}
-      {/* <Congrats /> */}
     </div>
   );
 }

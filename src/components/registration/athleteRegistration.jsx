@@ -3,8 +3,15 @@ import FieldEntry from "../../form_components/FieldEntry/FieldEntry";
 import AthleteDataDropdown from "../../form_components/Dropdown/AthleteDataDropdown";
 import PrevNxtButtons from "../../form_components/Buttons/PrevNxtButtons";
 import BirthdayCalendar from "../../form_components/Calendar/Calendar";
+import { useNavigate } from "react-router-dom";
 
 const AthleteRegistration = () => {
+    const navigate = useNavigate()
+
+    const generalAdmission = () => {
+        navigate('/generalAdmission')
+    }
+
     return(
         <div>
             <h2>Athlete Registration</h2>
@@ -31,7 +38,7 @@ const AthleteRegistration = () => {
 
             <p>Disclaimer | Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ut perferendis asperiores obcaecati libero quia accusantium, corporis velit similique saepe doloremque sed autem, modi quas atque magnam quidem sapiente. Doloribus.</p>
 
-            <PrevNxtButtons />
+            <PrevNxtButtons page={generalAdmission} />
 
         </div>
     )

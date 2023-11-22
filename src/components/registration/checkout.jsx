@@ -1,8 +1,16 @@
 import React from "react";
 import FieldEntry from "../../form_components/FieldEntry/FieldEntry";
-import ContainedButtons from "../../form_components/Buttons/buttons";
+import PrevNxtButtons from "../../form_components/Buttons/PrevNxtButtons";
+import { useNavigate } from "react-router-dom";
 
-const CheckOut = () => {
+
+const Checkout = () => {
+    const navigate = useNavigate()
+
+    const congrats = () => {
+        navigate('/congrats')
+    }
+
     return(
         <div>
             <h2>Check Out</h2>
@@ -13,9 +21,9 @@ const CheckOut = () => {
             <FieldEntry title='CVV' />
             <FieldEntry title='Billing Address' />
 
-            <ContainedButtons />
+            <PrevNxtButtons page={congrats} />
         </div>
     )
 }
 
-export default CheckOut;
+export default Checkout;
