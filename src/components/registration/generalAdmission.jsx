@@ -20,7 +20,7 @@ const GeneralAdmission = () => {
 
             <h4>Ticket Options</h4>
 
-            <PrevNxtButtons prevPage={athleteRegistration} nxtPage={checkout} />
+            <PrevNxtButtons prevPage={athleteRegistration} nxtPage={checkout} nextBtn='Continue To Checkout' />
             
         </div>
     )

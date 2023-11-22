@@ -25,7 +25,7 @@ const Checkout = () => {
             <FieldEntry title='CVV' />
             <FieldEntry title='Billing Address' />
 
-            <PrevNxtButtons prevPage={generalAdmission} nxtPage={congrats} />
+            <PrevNxtButtons prevPage={generalAdmission} nxtPage={congrats} nextBtn='Place Order' />
         </div>
     )
 }

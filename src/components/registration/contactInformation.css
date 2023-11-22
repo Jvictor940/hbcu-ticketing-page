@@ -21,7 +21,46 @@
 
 .title {
     color: #FFA800;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 44px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 72px;
+    position: relative;
+    top: 0;
+    width: 1037px;
+    
 }
+  
+.form .text-wrapper {
+    color: #000000;
+    font-family: "Poppins-Regular", Helvetica;
+    left: 0;
+    top: 0;
+}
+
+.form h2 {
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 50px;
+    position: relative;
+    white-space: nowrap;
+    /* width: 706px; */
+}
+
+.form p {
+    font-size: 16px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 30px;
+    /* position: relative; */
+    top: 0;
+    width: 1218px; 
+}
+  
 
 .wallpaper {
     height: 250px;

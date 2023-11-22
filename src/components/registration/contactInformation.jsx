@@ -15,17 +15,14 @@ const ContactInformation = () => {
 
     return (
         <div>
-            <div className="wallpaper">Placeholder for wallpaper</div>
+            <div className="wallpaper"></div>
             <div className="form">
                 <h1 className="title">HBCU Sports Summit-Baltimore</h1>
-                <h3>May 3, 2024</h3>
-                <h3>M&T Bank Stadium / Baltimore MD</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed itaque, adipisci molestiae quisquam in voluptas laborum aliquam doloribus, 
-                iusto dolorum quibusdam maxime quo iste necessitatibus quod at hic. Quam, fugit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed itaque, adipisci molestiae quisquam in voluptas laborum aliquam doloribus, 
-                iusto dolorum quibusdam maxime quo iste necessitatibus quod at hic. Quam, fugit.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed itaque, adipisci molestiae quisquam in voluptas laborum aliquam doloribus, 
-                iusto dolorum quibusdam maxime quo iste necessitatibus quod at hic. Quam, fugit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed itaque, adipisci molestiae quisquam in voluptas laborum aliquam doloribus, 
-                iusto dolorum quibusdam maxime quo iste necessitatibus quod at hic. Quam, fugit.
+                <h2 className="text-wrapper">May 3, 2024</h2>
+                <h2 className="text-wrapper">M&T Bank Stadium / Baltimore MD</h2>
+                <p>This is a platform that gives coaches and athletes a chance to see the competitive talent on the field, and we are also educating the players and families in this process of the eligibility to higher learning. The purpose of the summit is to increase the enrollment process of an HBCU. This gives the kids an unforgettable experience in an NFL Stadium on the field, and a personal one on one experience with an NFL Player who has been through this process. 
+                    
+                We will have educational panels for the parents and kids going over the process of college admissions, fitness training & nutrition, mental health and wellness, Black Tech, and financial literacy information on the process of enrolling in a HBCU with proper financial planning. There will be an expo, job fair and HBCU college fair with student recruits, local vendors, sponsors, media outlets, barbers, and braiders with so much more. The celebrity panels will showcase NFL players & HBCU Alumni panels talking about their HBCU experiences, mental health, job opportunities, internships, podcasts and much more. This is an opportunity to showcase and share these brands with all of you that come through the HBCU Sports Summit.
                 </p>
                 <div className="borderline"></div>
 
@@ -51,7 +48,7 @@ const ContactInformation = () => {
 
                 <ConsentRadioButtonsGroup />
 
-                <PrevNxtButtons nxtPage={athleteRegistrationPage} />
+                <PrevNxtButtons nxtPage={athleteRegistrationPage} nextBtn='Continue to Athlete Registration' />
             </div>
         </div>
     )
