@@ -7,7 +7,7 @@ import FormLabel from '@mui/material/FormLabel';
 import FieldEntry from '../FieldEntry/FieldEntry';
 import "./EmergencyContactRadioButton.css";
 
-const ECRadioButtonsGroup = () => {
+const EmergencyContactRadioButtonsGroup = () => {
   const [popup, setPopup] = useState(false)
 
   return (
@@ -33,4 +33,4 @@ const ECRadioButtonsGroup = () => {
   );
 }
 
-export default ECRadioButtonsGroup;
+export default EmergencyContactRadioButtonsGroup;

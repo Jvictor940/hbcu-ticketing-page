@@ -7,7 +7,7 @@ import Select from '@mui/material/Select';
 import { gender, position, size, grade } from './athleteData';
 
 
-const BasicSelect = ({ title }) => {
+const AthleteDataDropdown = ({ title }) => {
   const [dataType, setDataType] = useState([])
 
   useEffect(() => {
@@ -49,4 +49,4 @@ const BasicSelect = ({ title }) => {
   );
 }
 
-export default BasicSelect;
+export default AthleteDataDropdown;

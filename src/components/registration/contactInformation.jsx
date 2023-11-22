@@ -1,9 +1,9 @@
 import React from "react";
 import FieldEntry from "../../form_components/FieldEntry/FieldEntry"
-import ECRadioButtonsGroup from "../../form_components/CheckField/EmergencyContactRadioButton";
-import ConsentRadioButtonsGroup from "../../form_components/CheckField/consentRadioButtonsGroup";
-import "./contactInformation.css"
-import ContainedButtons from "../../form_components/Buttons/buttons";
+import EmergencyContactRadioButtonsGroup from "../../form_components/CheckField/EmergencyContactRadioButton";
+import ConsentRadioButtonsGroup from "../../form_components/CheckField/ConsentRadioButtonsGroup";
+import "./ContactInformation.css"
+import PrevNxtButtons from "../../form_components/Buttons/PrevNxtButtons";
 import { useNavigate } from "react-router-dom"
 
 const ContactInformation = () => {
@@ -40,7 +40,7 @@ const ContactInformation = () => {
                 </div>
 
                 <h4>Emergency Contact</h4>
-                <ECRadioButtonsGroup />
+                <EmergencyContactRadioButtonsGroup />
 
                 <h4>Consent</h4>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores, obcaecati delectus, sit doloremque sequi quam aut repudiandae voluptate harum, 
@@ -51,7 +51,7 @@ const ContactInformation = () => {
 
                 <ConsentRadioButtonsGroup />
 
-                <ContainedButtons page={athleteRegistrationPage} />
+                <PrevNxtButtons page={athleteRegistrationPage} />
             </div>
         </div>
     )

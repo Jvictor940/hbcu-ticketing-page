@@ -5,7 +5,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
-export default function ConsentRadioButtonsGroup() {
+const ConsentRadioButtonsGroup = () => {
   return (
     <FormControl>
       <FormLabel id="demo-radio-buttons-group-label"></FormLabel>
@@ -20,3 +20,5 @@ export default function ConsentRadioButtonsGroup() {
     </FormControl>
   );
 }
+
+export default ConsentRadioButtonsGroup;

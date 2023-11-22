@@ -1,9 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { useNavigate } from 'react-router-dom';
 
-const ContainedButtons = ({ page }) => {
+const PrevNxtButtons = ({ page }) => {
   const navigate = useNavigate('/')
 
   const contactInfo = () => {
@@ -19,4 +19,4 @@ const ContainedButtons = ({ page }) => {
   );
 }
 
-export default ContainedButtons;
+export default PrevNxtButtons;
