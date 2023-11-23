@@ -15,7 +15,7 @@ const EmergencyContactRadioButtonsGroup = () => {
       <FormLabel id="demo-radio-buttons-group-label"></FormLabel>
       <RadioGroup
         aria-labelledby="demo-radio-buttons-group-label"
-        defaultValue="Emergency Contact"
+        defaultValue=""
         name="radio-buttons-group"
       >
         <FormControlLabel value="Emergency Contact" control={<Radio className="squareRadio"/>} label="I am the Emergency Contact" onClick={() => setPopup(false)}/>

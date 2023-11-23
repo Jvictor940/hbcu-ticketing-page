@@ -1,7 +1,7 @@
 import React from "react";
 import FieldEntry from "../../form_components/FieldEntry/FieldEntry"
 import EmergencyContactRadioButtonsGroup from "../../form_components/CheckField/EmergencyContactRadioButton";
-import ConsentRadioButtonsGroup from "../../form_components/CheckField/ConsentRadioButtonsGroup";
+import RadioButtonsGroup from "../../form_components/CheckField/RadioButtonsGroup";
 import "./ContactInformation.css"
 import PrevNxtButtons from "../../form_components/Buttons/PrevNxtButtons";
 import { useNavigate } from "react-router-dom"
@@ -24,6 +24,7 @@ const ContactInformation = () => {
                     
                 We will have educational panels for the parents and kids going over the process of college admissions, fitness training & nutrition, mental health and wellness, Black Tech, and financial literacy information on the process of enrolling in a HBCU with proper financial planning. There will be an expo, job fair and HBCU college fair with student recruits, local vendors, sponsors, media outlets, barbers, and braiders with so much more. The celebrity panels will showcase NFL players & HBCU Alumni panels talking about their HBCU experiences, mental health, job opportunities, internships, podcasts and much more. This is an opportunity to showcase and share these brands with all of you that come through the HBCU Sports Summit.
                 </p>
+
                 <div className="borderline"></div>
 
                 <h1 className="title">Contact Information</h1>
@@ -46,7 +47,7 @@ const ContactInformation = () => {
                 facilis consectetur nisi saepe omnis! Nesciunt, sunt! Accusantium provident autem tenetur?
                 </p>
 
-                <ConsentRadioButtonsGroup />
+                <RadioButtonsGroup option1='I Consent' option2='I Do Not Consent' />
 
                 <PrevNxtButtons nxtPage={athleteRegistrationPage} nextBtn='Continue to Athlete Registration' />
             </div>

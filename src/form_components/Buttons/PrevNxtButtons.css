@@ -1,4 +1,8 @@
-.prev-next-btn {
+.prev-nxt-btn {
     margin-top: 40px;
     margin-bottom: 30px;
+}
+
+.nxtBtn {
+    color: #FFA800;
 }

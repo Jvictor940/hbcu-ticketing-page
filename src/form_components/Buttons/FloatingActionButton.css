@@ -1,0 +1,12 @@
+.add-athlete-box {
+    display: flex;
+    align-items: center;
+    /* width: 30px; */
+}
+
+.add-athlete-txt {
+    font-size: 50em;
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 10px;
+}
