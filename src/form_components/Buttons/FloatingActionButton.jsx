@@ -8,6 +8,7 @@ import FieldEntry from '../FieldEntry/FieldEntry';
 // import { TextField } from '@mui/material';
 import BirthdayCalendar from '../Calendar/Calendar';
 import AthleteDataDropdown from '../Dropdown/AthleteDataDropdown';
+import RadioButtonsGroup from '../CheckField/RadioButtonsGroup';
 
  const FloatingActionButtons = () => {
     const [fieldCount, setFieldCount] = useState(1); // keeps track of the number of input fields we want to render
@@ -60,8 +61,10 @@ import AthleteDataDropdown from '../Dropdown/AthleteDataDropdown';
                 <AthleteDataDropdown title='Size' />
                 <AthleteDataDropdown title='Grade' />
             </div>
-
-                </div>
+            
+            <h5>Ticket Options</h5>
+            <RadioButtonsGroup option1='Sponsored Athlete | Free' option2='Athlete Ticket' />
+            </div>
             )
 
         }
