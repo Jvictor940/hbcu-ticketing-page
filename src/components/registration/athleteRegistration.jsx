@@ -37,18 +37,24 @@ const AthleteRegistration = () => {
             <div className="borderline" ></div>
 
             <h4>Athlete Information</h4>
+
+            <h5>Date of Birth</h5>
             <BirthdayCalendar />
-            <AthleteDataDropdown title='Gender' />
-            <AthleteDataDropdown title='Position' />
-            <AthleteDataDropdown title='Size' />
-            <AthleteDataDropdown title='Grade' />
-            <h5>Height</h5>
+
+            <div className="athlete-dropdown">
+                <AthleteDataDropdown title='Gender' />
+                <AthleteDataDropdown title='Position' />
+                <AthleteDataDropdown title='Size' />
+                <AthleteDataDropdown title='Grade' />
+            </div>
+
+            {/* <h5>Height</h5>
             <FieldEntry title='ft'/>
-            <FieldEntry title='in'/>
+            <FieldEntry title='in'/> */}
 
             <h5>Ticket Options</h5>
             <RadioButtonsGroup option1='Sponsored Athlete | Free' option2='Athlete Ticket' />
-            
+
             <FloatingActionButtons />
 
             <p>

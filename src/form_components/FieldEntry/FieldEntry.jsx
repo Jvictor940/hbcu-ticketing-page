@@ -3,6 +3,10 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
 const FieldEntry = ({ title }) => {
+
+  const handleChange = (e) => {
+    console.log(e.target.value)
+  }
   return (
     <Box
       component="form"
@@ -12,7 +16,7 @@ const FieldEntry = ({ title }) => {
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label={title} variant="outlined" />
+      <TextField id="outlined-basic" label={title} variant="outlined" onChange={handleChange} />
     </Box>
   );
 }

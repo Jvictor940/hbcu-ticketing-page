@@ -1,3 +1,13 @@
+.athlete-contact-info {
+    display: flex;
+    width: 45%;
+    flex-wrap: wrap;
+}
+
+.athlete-dropdown {
+    width: 15%;
+}
+
 .borderline {
     border-top: 2px solid #FFA800;
     margin-top: 40px;
@@ -7,12 +17,7 @@
 .form {
     width: 80%;
     margin: auto; 
-}
-
-.athlete-contact-info {
-    display: flex;
-    width: 30%;
-    flex-wrap: wrap;
+    font-family: "Poppins-Bold", Helvetica;
 }
 
 .input-field {

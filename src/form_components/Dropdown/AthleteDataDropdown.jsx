@@ -5,6 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { gender, position, size, grade } from './athleteData';
+import {v4 as uuidv4 } from 'uuid'
 
 
 const AthleteDataDropdown = ({ title }) => {
@@ -40,9 +41,11 @@ const AthleteDataDropdown = ({ title }) => {
           label={title}
           onChange={handleChange}
         >
+
           {dataType.map((data) => (
-            <MenuItem value={data}>{data}</MenuItem>
+            <MenuItem key={uuidv4()} value={data}>{data}</MenuItem>
           ))}
+
         </Select>
       </FormControl>
     </Box>

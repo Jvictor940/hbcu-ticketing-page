@@ -20,7 +20,6 @@ const EmergencyContactRadioButtonsGroup = () => {
       >
         <FormControlLabel value="Emergency Contact" control={<Radio className="squareRadio"/>} label="I am the Emergency Contact" onClick={() => setPopup(false)}/>
         <FormControlLabel value="Add Emergency Contact" control={<Radio className="squareRadio"/>} label="Add an Emergency Contact" onClick={() => setPopup(true)} />
-        {/* <FormControlLabel value="other" control={<Radio />} label="Other" /> */}
       </RadioGroup>
       {popup && <div className="guardian-information">
         <FieldEntry className="input-field" title='First Name' />
