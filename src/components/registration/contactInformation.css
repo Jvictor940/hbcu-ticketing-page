@@ -1,3 +1,7 @@
+body {
+    margin: 0; /* eliminates the whitespace around our images */
+}
+
 .borderline {
     border-top: 2px solid #FFA800;
     margin-top: 40px;
@@ -62,10 +66,25 @@
 }
   
 
-.wallpaper {
+/* .wallpaper {
     height: 250px;
     width: 80%;
     margin: auto;
-    background-image: url("../../images/multi-colored-spheres-sport-balls-galore-outdoors-generated-by-ai_188544-20013.avif"); 
-    /* background-repeat: no-repeat; */
+    background-image: url("../../images/multi-colored-spheres-sport-balls-galore-outdoors-generated-by-ai_188544-20013.avif");
+} */
+
+
+.wallpaper {
+    width: 100vw;
+    height: 90vh;
+    background-image: url(../../images/linemen.jpeg);
+    background-size: cover;
+
 }
+
+/* .wallpaper {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../../images/kickoff.jpeg);
+    background-size: cover;
+} */
