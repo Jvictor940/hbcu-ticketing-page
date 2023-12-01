@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import PrevNxtButtons from "../../form_components/Buttons/PrevNxtButtons";
+import QuantityDropdownField from "../../form_components/Dropdown/QuantityDropdownField";
 
 const GeneralAdmission = () => {
     const navigate = useNavigate()
@@ -20,7 +21,9 @@ const GeneralAdmission = () => {
 
             <h4>Ticket Options</h4>
             <p>General Admission - Saturday</p>
+            <QuantityDropdownField />
             <p>General Admission - Sunday</p>
+            <QuantityDropdownField />
 
             <PrevNxtButtons prevPage={athleteRegistration} nxtPage={checkout} nextBtn='Continue To Checkout' />
             
