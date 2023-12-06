@@ -4,11 +4,18 @@ dotenv.config({ path: './config/config.env' });
 const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST)
 const bodyParser = require('body-parser')
 const QRCode = require('qrcode')
+const athlete = require('./routes/athlete');
+const coach = require('./routes/coach');
+const generalAdmission = require('./routes/generalAdmission');
 
 
 const app = express()
 
 app.use(bodyParser.json());
+
+app.use('/athlete', athlete)
+app.use('/coach', coach)
+app.use('/generalAdmission', generalAdmission)
 
 app.post("/payment-intent", async (req, res, next) => {
   const paymentIntent = await stripe.paymentIntents.create({
