@@ -1,16 +1,16 @@
 const express = require('express')
+const dotenv = require('dotenv')
+dotenv.config({ path: './config/config.env' });
 const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST)
 const bodyParser = require('body-parser')
-const dotenv = require('dotenv')
 const QRCode = require('qrcode')
 
-dotenv.config({ path: './config/config.env' });
 
 const app = express()
 
 app.use(bodyParser.json());
 
-app.post("/create-payment-intent", async (req, res, next) => {
+app.post("/payment-intent", async (req, res, next) => {
   const paymentIntent = await stripe.paymentIntents.create({
       amount: 1000,
       currency: "usd"
