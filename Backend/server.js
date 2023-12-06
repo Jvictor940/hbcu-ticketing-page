@@ -1,7 +1,8 @@
 const express = require('express')
-const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc")
+const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST)
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv')
+const QRCode = require('qrcode')
 
 dotenv.config({ path: './config/config.env' });
 
@@ -16,6 +17,17 @@ app.post("/create-payment-intent", async (req, res, next) => {
   });
   console.log("Client secret", paymentIntent.client_secret)
   return res.status(200).json({clientSecret: paymentIntent.client_secret})
+});
+
+app.post("/payment-notification", (req, res, next) => {
+  if (!req.body.paymentId) {
+      return res.status(400).json({error: "no payment id present"});
+  }
+  QRCode.toDataURL(req.body.paymentId, function (err, url) {
+      console.log("URL: ", url);
+      // Use this data url to create an email and send it;
+      return res.status(200).json({url});
+    })
 });
 
 
