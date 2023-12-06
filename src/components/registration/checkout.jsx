@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
-
 import "./Checkout.css";
 
 
@@ -46,7 +45,7 @@ const Checkout = () => {
     };
 
     return(
-        <div>
+        <div id='checkout-page' >
             {clientSecret && (
                 <Elements options={options} stripe={stripePromise}>
                     <CheckoutForm />
