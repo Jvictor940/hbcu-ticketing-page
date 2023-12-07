@@ -1,6 +1,23 @@
 // For '/athlete' endpoints
 
 const getAthletes = (req, res, next) => {
+    // query parameter
+    if (Object.keys(req.query).length) {
+        const {
+            firstName,
+            lastName
+        } = req.query
+
+        const filter = [];
+
+        if (firstName) filter.push(firstName)
+        if (lastName) filter.push(lastName)
+
+        for(const query of filter){
+            console.log(`Searching athlete by ${query}`)
+        }
+    }
+
     res
     .status(200)
     .setHeader('Content-Type', 'application/json')
@@ -27,7 +44,7 @@ const getAthlete = (req, res, next) => {
     res
     .status(200)
     .setHeader('Content-Type', 'application/json')
-    .json({ message: `show mw the athlete with the athlete Id of ${req.params.athleteId}`})
+    .json({ message: `show me the athlete with the athlete Id of ${req.params.athleteId}`})
 }
 
 const putAthlete = (req, res, next) => {

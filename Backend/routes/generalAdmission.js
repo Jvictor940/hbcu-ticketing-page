@@ -14,7 +14,7 @@ router.route('/')
     .post(createGeneralAdmission)
     .delete(deleteGeneralAdmissions)
 
-router.route('/')
+router.route('/:generalAdmissionId')
     .get(getGeneralAdmission)
     .put(putGeneralAdmission)
     .delete(deleteGeneralAdmission)

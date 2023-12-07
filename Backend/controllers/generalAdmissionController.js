@@ -1,6 +1,23 @@
 // For '/generalAdmission' endpoints
 
 const getGeneralAdmissions = (req, res, next) => {
+    // query parameter
+    if (Object.keys(req.query).length) {
+        const {
+            firstName,
+            lastName
+        } = req.query
+
+        const filter = [];
+
+        if (firstName) filter.push(firstName)
+        if (lastName) filter.push(lastName)
+
+        for(const query of filter){
+            console.log(`Searching general admission by ${query}`)
+        }
+    }
+
     res
     .status(200)
     .setHeader('Content-Type', 'application/json')
@@ -26,7 +43,7 @@ const getGeneralAdmission = (req, res, next) => {
     res
     .status(200)
     .setHeader('Content-Type', 'application/json')
-    .json({ message: `show mw the generalAdmission with the generalAdmission Id of ${req.params.generalAdmissionId}`})
+    .json({ message: `show me the generalAdmission with the generalAdmission Id of ${req.params.generalAdmissionId}`})
 }
 
 const putGeneralAdmission = (req, res, next) => {

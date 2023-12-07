@@ -8,6 +8,8 @@ const athlete = require('./routes/athlete');
 const coach = require('./routes/coach');
 const generalAdmission = require('./routes/generalAdmission');
 // const cors = require('cors')
+const logger = require('./middlewares/logger')
+const errorHandler = require('./middlewares/error')
 
 
 const app = express()
@@ -17,6 +19,8 @@ app.use(bodyParser.json());
 //   origin: '*'
 // }))
 
+app.use(logger)
+app.use(errorHandler)
 app.use('/athlete', athlete)
 app.use('/coach', coach)
 app.use('/generalAdmission', generalAdmission)
