@@ -10,7 +10,10 @@ const generalAdmission = require('./routes/generalAdmission');
 // const cors = require('cors')
 const logger = require('./middlewares/logger')
 const errorHandler = require('./middlewares/error')
+const connectDB = require('./config/db')
 
+
+connectDB()
 
 const app = express()
 
