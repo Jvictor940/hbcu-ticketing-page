@@ -3,14 +3,20 @@ const router = express.Router();
 const {
     getAthletes,
     createAthlete,
+    deleteAthletes,
+    getAthlete,
     putAthlete,
-    deleteAthletes
+    deleteAthlete
 } = require('../controllers/athleteController')
 
 router.route('/')
     .get(getAthletes)
     .post(createAthlete)
-    .put(putAthlete)
     .delete(deleteAthletes)
 
+router.route('/:athleteId')
+    .get(getAthlete)
+    .put(putAthlete)
+    .delete(deleteAthlete)
+    
 module.exports = router;

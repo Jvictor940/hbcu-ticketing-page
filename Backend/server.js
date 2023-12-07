@@ -7,11 +7,15 @@ const QRCode = require('qrcode')
 const athlete = require('./routes/athlete');
 const coach = require('./routes/coach');
 const generalAdmission = require('./routes/generalAdmission');
+// const cors = require('cors')
 
 
 const app = express()
 
 app.use(bodyParser.json());
+// app.use(cors({
+//   origin: '*'
+// }))
 
 app.use('/athlete', athlete)
 app.use('/coach', coach)

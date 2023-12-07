@@ -3,14 +3,20 @@ const router = express.Router();
 const {
     getGeneralAdmissions,
     createGeneralAdmission,
+    deleteGeneralAdmissions,
+    getGeneralAdmission,
     putGeneralAdmission,
-    deleteGeneralAdmissions
+    deleteGeneralAdmission
 } = require('../controllers/generalAdmissionController')
 
 router.route('/')
     .get(getGeneralAdmissions)
     .post(createGeneralAdmission)
-    .put(putGeneralAdmission)
     .delete(deleteGeneralAdmissions)
+
+router.route('/')
+    .get(getGeneralAdmission)
+    .put(putGeneralAdmission)
+    .delete(deleteGeneralAdmission)
 
 module.exports = router;

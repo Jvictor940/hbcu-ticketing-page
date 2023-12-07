@@ -3,8 +3,10 @@ const router = express.Router();
 const {
     getCoaches,
     createCoach,
+    deleteCoaches,
+    getCoach,
     putCoach,
-    deleteCoaches
+    deleteCoach
 } = require('../controllers/coachController')
 
 router.route('/')
@@ -13,4 +15,9 @@ router.route('/')
     .put(putCoach)
     .delete(deleteCoaches)
 
+router.route('/:coachId')
+    .get(getCoach)
+    .put(putCoach)
+    .delete(deleteCoach)
+    
 module.exports = router;
