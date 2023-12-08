@@ -11,6 +11,18 @@ const CoachSchema = new Schema({
         type: String, 
         required: true,
         maxLength: 10
+    },
+    phone: {
+        type: Number,
+        required: true
+    },
+    school: {
+        type: String, 
+        required: true
+    },
+    schoolEmail: {
+        type: String,
+        required: true
     }
 }, {
     timestamps: true
