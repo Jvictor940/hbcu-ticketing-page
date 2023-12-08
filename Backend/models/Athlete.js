@@ -17,8 +17,11 @@ const AthleteSchema = new Schema({
         required: true
     },
     phone: {
-        type: Number,
-        required: true
+        type: String,
+        required: true, 
+        minLength: [10, 'You must have atleast 10 numbers'],
+        maxLength: [11, 'Maximum amount of numbers is 11'],
+        match: [/^[0-9]+$/, 'Only Numbers are allowed']
     },
     address: {
         type: String, 
@@ -60,7 +63,7 @@ const AthleteSchema = new Schema({
         ],
         required: true
     },
-    Grade: {
+    grade: {
         type: String,
         enum: [
             'Freshman', 

@@ -13,8 +13,11 @@ const CoachSchema = new Schema({
         maxLength: 10
     },
     phone: {
-        type: Number,
-        required: true
+        type: String,
+        required: true,
+        minLength: [10, 'You must have atleast 10 numbers'],
+        maxLength: [11, 'Maximum amount of numbers is 11'],
+        match: [/^[0-9]+$/, 'Only Numbers are allowed']
     },
     school: {
         type: String, 
