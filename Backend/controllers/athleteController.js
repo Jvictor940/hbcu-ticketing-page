@@ -47,40 +47,65 @@ const createAthlete = async (req, res, next) => {
     }
 }
 
-const deleteAthletes = (req, res, next) => {
+const deleteAthletes = async (req, res, next) => {
 
-    // try {
-        
-    // } catch (err) {
-    //     next(err)
-    // }
-    res
-    .status(200)
-    .setHeader('Content-Type', 'application/json')
-    .json({ message: 'deleted all the athletes'})
+    try {
+        const deletedAthletes = await Athlete.deleteMany()
+
+        res
+        .status(200)
+        .setHeader('Content-Type', 'application/json')
+        .json(deletedAthletes)
+    } catch (err) {
+        next(err)
+    }
 }
 
 
 // For '/athlete/:athleteId'
-const getAthlete = (req, res, next) => {
-    res
-    .status(200)
-    .setHeader('Content-Type', 'application/json')
-    .json({ message: `show me the athlete with the athlete Id of ${req.params.athleteId}`})
+const getAthlete = async (req, res, next) => {
+
+    try {
+        const athlete = await Athlete.findById(req.params.athleteId)
+
+        res
+        .status(200)
+        .setHeader('Content-Type', 'application/json')
+        .json(athlete)
+    } catch (err) {
+        next(err)
+    }
+
 }
 
-const putAthlete = (req, res, next) => {
-    res
-    .status(200)
-    .setHeader('Content-Type', 'application/json')
-    .json({ message: `update the athlete with the athlete Id of ${req.params.athleteId}`})
+const putAthlete = async (req, res, next) => {
+
+    try {
+        const updatedAthlete = await Athlete.findByIdAndUpdate(req.params.athleteId, req.body, { new: true } )
+
+        res
+        .status(200)
+        .setHeader('Content-Type', 'application/json')
+        .json(updatedAthlete)
+    } catch (err) {
+        next(err)
+    }
+
 }
 
-const deleteAthlete = (req, res, next) => {
-    res
-    .status(200)
-    .setHeader('Content-Type', 'application/json')
-    .json({ message: `delete the athlete with the athlete Id of ${req.params.athleteId}`})
+const deleteAthlete = async (req, res, next) => {
+
+    try {
+        const deletedAthlete = await Athlete.findByIdAndDelete(req.params.athletId)
+
+        res
+        .status(200)
+        .setHeader('Content-Type', 'application/json')
+        .json(deletedAthlete)
+    } catch (err) {
+        next(err)
+    }
+
 }
 
 module.exports = {

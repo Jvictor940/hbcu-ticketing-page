@@ -46,33 +46,64 @@ const createCoach = async (req, res, next) => {
     }
 }
 
-const deleteCoaches = (req, res, next) => {
-    res
-    .status(200)
-    .setHeader('Content-Type', 'application/json')
-    .json({ message: 'deleted all the coaches'})
+const deleteCoaches = async (req, res, next) => {
+
+    try {
+        const deletedCoaches = await Coach.deleteMany()
+
+        res
+        .status(200)
+        .setHeader('Content-Type', 'application/json')
+        .json(deletedCoaches)
+    } catch (err) {
+        next(err)
+    }
 }
 
 // For '/coach/:coachId'
-const getCoach = (req, res, next) => {
-    res
-    .status(200)
-    .setHeader('Content-Type', 'application/json')
-    .json({ message: `show me the coach with the coach Id of ${req.params.coachId}`})
+const getCoach = async (req, res, next) => {
+
+    try {
+        const coach = await Coach.findById(req.params.coachId)
+
+        res
+        .status(200)
+        .setHeader('Content-Type', 'application/json')
+        .json(coach)
+    } catch (err) {
+        next(err)
+    }
+
 }
 
-const putCoach = (req, res, next) => {
-    res
-    .status(200)
-    .setHeader('Content-Type', 'application/json')
-    .json({ message: `update the coach with the coach Id of ${req.params.coachId}`})
+const putCoach = async (req, res, next) => {
+
+    try {
+        const updatedCoach = await Coach.findByIdAndUpdate(req.params.coachId, req.body, { new: true } )
+
+        res
+        .status(200)
+        .setHeader('Content-Type', 'application/json')
+        .json(updatedCoach)
+    } catch (err) {
+        next(err)
+    }
+
 }
 
-const deleteCoach = (req, res, next) => {
-    res
-    .status(200)
-    .setHeader('Content-Type', 'application/json')
-    .json({ message: `delete the coach with the coach Id of ${req.params.coachId}`})
+const deleteCoach = async (req, res, next) => {
+
+    try {
+        const deletedCoach = await Coach.findByIdAndDelete(req.params.athletId)
+
+        res
+        .status(200)
+        .setHeader('Content-Type', 'application/json')
+        .json(deletedCoach)
+    } catch (err) {
+        next(err)
+    }
+
 }
 
 module.exports = {

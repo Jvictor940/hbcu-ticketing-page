@@ -45,33 +45,65 @@ const createGuardian = async (req, res, next) => {
     }
 }
 
-const deleteGuardians = (req, res, next) => {
-    res
-    .status(200)
-    .setHeader('Content-Type', 'application/json')
-    .json({ message: 'deleted all the guardians'})
+const deleteGuardians = async (req, res, next) => {
+
+    try {
+        const deletedGuardians = await Guardian.deleteMany()
+
+        res
+        .status(200)
+        .setHeader('Content-Type', 'application/json')
+        .json(deletedGuardians)
+    } catch (err) {
+        next(err)
+    }
+
 }
 
 // For '/guardian/:guardianId'
-const getGuardian = (req, res, next) => {
-    res
-    .status(200)
-    .setHeader('Content-Type', 'application/json')
-    .json({ message: `show me the guardian with the guardian Id of ${req.params.guardianId}`})
+const getGuardian = async (req, res, next) => {
+
+    try {
+        const guardian = await Guardian.findById(req.params.guardianId)
+
+        res
+        .status(200)
+        .setHeader('Content-Type', 'application/json')
+        .json(guardian)
+    } catch (err) {
+        next(err)
+    }
+
 }
 
-const putGuardian = (req, res, next) => {
-    res
-    .status(200)
-    .setHeader('Content-Type', 'application/json')
-    .json({ message: `update the guardian with the guardian Id of ${req.params.guardianId}`})
+const putGuardian = async (req, res, next) => {
+
+    try {
+        const updatedGuardian = await Guardian.findByIdAndUpdate(req.params.guardianId, req.body, { new: true } )
+
+        res
+        .status(200)
+        .setHeader('Content-Type', 'application/json')
+        .json(updatedGuardian)
+    } catch (err) {
+        next(err)
+    }
+
 }
 
-const deleteGuardian = (req, res, next) => {
-    res
-    .status(200)
-    .setHeader('Content-Type', 'application/json')
-    .json({ message: `delete the guardian with the guardian Id of ${req.params.guardianId}`})
+const deleteGuardian = async (req, res, next) => {
+
+    try {
+        const deletedGuardian = await Guardian.findByIdAndDelete(req.params.athletId)
+
+        res
+        .status(200)
+        .setHeader('Content-Type', 'application/json')
+        .json(deletedGuardian)
+    } catch (err) {
+        next(err)
+    }
+
 }
 
 module.exports = {
