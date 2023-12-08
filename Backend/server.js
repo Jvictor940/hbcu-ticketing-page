@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 const QRCode = require('qrcode')
 const athlete = require('./routes/athlete');
 const coach = require('./routes/coach');
-const generalAdmission = require('./routes/generalAdmission');
+const guardian = require('./routes/guardian');
 // const cors = require('cors')
 const logger = require('./middlewares/logger')
 const errorHandler = require('./middlewares/error')
@@ -26,7 +26,7 @@ app.use(logger)
 app.use(errorHandler)
 app.use('/athlete', athlete)
 app.use('/coach', coach)
-app.use('/generalAdmission', generalAdmission)
+app.use('/guardian', guardian)
 
 app.post("/payment-intent", async (req, res, next) => {
   const paymentIntent = await stripe.paymentIntents.create({

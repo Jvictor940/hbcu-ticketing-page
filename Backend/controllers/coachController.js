@@ -1,6 +1,7 @@
-// For '/coach' endpoints
+const Coach = require('../models/Coach')
 
-const getCoaches = (req, res, next) => {
+// For '/coach' endpoints
+const getCoaches = async (req, res, next) => {
     // query parameter
     if (Object.keys(req.query).length) {
         const {
@@ -18,17 +19,31 @@ const getCoaches = (req, res, next) => {
         }
     }
 
-    res
-    .status(200)
-    .setHeader('Content-Type', 'application/json')
-    .json({ message: 'show me all the coaches'})
+    try {
+        const coaches = await Coach.find()
+        
+        res
+        .status(200)
+        .setHeader('Content-Type', 'application/json')
+        .json(coaches)
+    } catch (err) {
+        next(err)
+    }
+
 }
 
-const createCoach = (req, res, next) => {
-    res
-    .status(201)
-    .setHeader('Content-Type', 'application/json')
-    .json({ message: `Created coach with the Coach name of ${req.body.coachName} `})
+const createCoach = async (req, res, next) => {
+
+    try {
+        const coach = await Coach.create(req.body)
+        
+        res
+        .status(201)
+        .setHeader('Content-Type', 'application/json')
+        .json(coach)
+    } catch (err) {
+        next(err)
+    }
 }
 
 const deleteCoaches = (req, res, next) => {

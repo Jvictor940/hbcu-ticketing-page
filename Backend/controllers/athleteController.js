@@ -1,6 +1,8 @@
+const Athlete = require('../models/Athlete')
+
 // For '/athlete' endpoints
 
-const getAthletes = (req, res, next) => {
+const getAthletes = async (req, res, next) => {
     // query parameter
     if (Object.keys(req.query).length) {
         const {
@@ -18,20 +20,40 @@ const getAthletes = (req, res, next) => {
         }
     }
 
-    res
-    .status(200)
-    .setHeader('Content-Type', 'application/json')
-    .json({ message: 'show me all the athletes'})
+    try {
+        const athletes = await Athlete.find()
+
+        res
+        .status(200)
+        .setHeader('Content-Type', 'application/json')
+        .json(athletes)
+    } catch (err) {
+        next(err)
+    }
+
 }
 
-const createAthlete = (req, res, next) => {
-    res
-    .status(201)
-    .setHeader('Content-Type', 'application/json')
-    .json({ message: `Created athlete with the Athlete name of ${req.body.athleteName} `})
+const createAthlete = async (req, res, next) => {
+
+    try {
+        const athlete = await Athlete.create(req.body)
+        
+        res
+        .status(201)
+        .setHeader('Content-Type', 'application/json')
+        .json(athlete)
+    } catch (err) {
+        next(err)
+    }
 }
 
 const deleteAthletes = (req, res, next) => {
+
+    // try {
+        
+    // } catch (err) {
+    //     next(err)
+    // }
     res
     .status(200)
     .setHeader('Content-Type', 'application/json')
