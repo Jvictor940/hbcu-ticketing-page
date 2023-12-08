@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FieldEntry from "../../form_components/FieldEntry/FieldEntry"
 import EmergencyContactRadioButtonsGroup from "../../form_components/CheckField/EmergencyContactRadioButton";
 import RadioButtonsGroup from "../../form_components/CheckField/RadioButtonsGroup";
@@ -12,6 +12,10 @@ const ContactInformation = () => {
     const athleteRegistrationPage = () => {
         navigate("/athleteRegistration")
     }
+    
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <div>

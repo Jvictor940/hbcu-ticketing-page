@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FieldEntry from "../../form_components/FieldEntry/FieldEntry";
 import AthleteDataDropdown from "../../form_components/Dropdown/AthleteDataDropdown";
 import PrevNxtButtons from "../../form_components/Buttons/PrevNxtButtons";
@@ -18,6 +18,10 @@ const AthleteRegistration = () => {
     const contactInfo = () => {
         navigate('/')
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 
     return(
         <div className="form" >
