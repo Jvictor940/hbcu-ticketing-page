@@ -17,6 +17,10 @@ import RadioButtonsGroup from '../CheckField/RadioButtonsGroup';
     const handleAddAthleteField = () => {
         setFieldCount(prevCount => prevCount + 1);
     }; // This function is called when the "AddIcon" is clicked. It increases the fieldCount by 1, which dynamically adds more input fields to the form.
+
+    const handleRemoveAthleteField = () => {
+        setFieldCount(prevCount => prevCount - 1)
+    }
     
     const handleAthleteInputChange = (fieldName, value) => {
         setAthleteInputValues(prevValues => ({
@@ -64,6 +68,7 @@ import RadioButtonsGroup from '../CheckField/RadioButtonsGroup';
             
             <h5>Ticket Options</h5>
             <RadioButtonsGroup option1='Sponsored Athlete | Free' option2='Athlete Ticket' />
+            <button className='remove-btn' onClick={handleRemoveAthleteField}>Remove</button>
             </div>
             )
 

@@ -10,3 +10,10 @@
     display: inline-block;
     margin-left: 10px;
 }
+
+.remove-btn {
+    background-color: #FFA800;
+    border-radius: 500px;
+    display: block;
+    margin: 10px;
+}

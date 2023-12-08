@@ -18,7 +18,7 @@ const ContactInformation = () => {
             <div className="wallpaper"></div>
             <div className="form">
                 <h1 className="title">HBCU Sports Summit-Baltimore</h1>
-                <h2 className="text-wrapper">May 3, 2024</h2>
+                <h2 className="text-wrapper">April 20th - 21st, 2024</h2>
                 <h2 className="text-wrapper">M&T Bank Stadium / Baltimore MD</h2>
                 <p>This is a platform that gives coaches and athletes a chance to see the competitive talent on the field, and we are also educating the players and families in this process of the eligibility to higher learning. The purpose of the summit is to increase the enrollment process of an HBCU. This gives the kids an unforgettable experience in an NFL Stadium on the field, and a personal one on one experience with an NFL Player who has been through this process. 
                     
