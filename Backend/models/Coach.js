@@ -22,7 +22,8 @@ const CoachSchema = new Schema({
     },
     schoolEmail: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     }
 }, {
     timestamps: true

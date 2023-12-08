@@ -51,6 +51,11 @@ app.post("/payment-notification", (req, res, next) => {
 
 const PORT = process.env.PORT || 4000
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`Server is listening on Port: ${PORT} `)
+})
+
+process.on('unhandledRejection', (err, promise) => {
+  console.log(`Error: ${err.message}`)
+  server.close(() => process.exit(1))
 })

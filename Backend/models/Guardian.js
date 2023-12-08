@@ -14,7 +14,7 @@ const GuardianSchema = new Schema({
     },
     email: {
         type: String,
-        required: true
+        required: true,
     },
     phone: {
         type: Number,
