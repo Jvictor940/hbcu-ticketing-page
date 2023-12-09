@@ -1,14 +1,46 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect, useContext, createContext } from "react";
 import FieldEntry from "../../form_components/FieldEntry/FieldEntry"
 import EmergencyContactRadioButtonsGroup from "../../form_components/CheckField/EmergencyContactRadioButton";
 import RadioButtonsGroup from "../../form_components/CheckField/RadioButtonsGroup";
 import "./ContactInformation.css"
 import PrevNxtButtons from "../../form_components/Buttons/PrevNxtButtons";
 import { useNavigate } from "react-router-dom"
+import axios from "axios";
+import Context from "./Context";
 
 const ContactInformation = () => {
-    const navigate = useNavigate(); 
 
+    const [guardianData, setGuardianData] = useState({
+        firstName: '', 
+        lastName: '', 
+        email: '', 
+        phone: '', 
+        address: '', 
+      })
+    
+      const handleInputChange = (e) => {
+        console.log('e.target.name' ,e.target.name)
+        console.log('e.target.value' ,e.target.value)
+        setGuardianData({
+            ...guardianData, 
+            [e.target.name]: e.target.value
+        })
+        console.log('guardianData', guardianData)
+    }
+    
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        try {
+            const response = await axios.post('http://localhost:4000/guardian', guardianData)
+            console.log( 'responseData',response.data); 
+        } catch (err) {
+            console.log('Error submitting form', err.response)
+        }
+    }
+
+    const navigate = useNavigate(); 
+    
     const athleteRegistrationPage = () => {
         navigate("/athleteRegistration")
     }
@@ -33,13 +65,18 @@ const ContactInformation = () => {
 
                 <h1 className="title">Contact Information</h1>
                 <h4>Guardian Information</h4>
-                <div className="guardian-information">
-                    <FieldEntry className="input-field" title='First Name' />
-                    <FieldEntry className="input-field" title='Last Name'/>
-                    <FieldEntry className="input-field" title='Email'/>
-                    <FieldEntry className="input-field" title='Phone'/>
-                    <FieldEntry className="input-field" title='Address'/>
-                </div>
+                <Context.Provider value={guardianData}>
+                    <form onSubmit={handleSubmit} >
+                        <div className="guardian-information" >
+                            <FieldEntry className="input-field" title='First Name' value={guardianData.firstName} onChange={handleInputChange}  name='firstName' />
+                            <FieldEntry className="input-field" title='Last Name'value={guardianData.lastName} onChange={handleInputChange}  name='lastName' />
+                            <FieldEntry className="input-field" title='Email'value={guardianData.email} onChange={handleInputChange}  name='email' />
+                            <FieldEntry className="input-field" title='Phone'value={guardianData.phone} onChange={handleInputChange} name='phone' />
+                            <FieldEntry className="input-field" title='Address'value={guardianData.address} onChange={handleInputChange}  name='address' />
+                        </div>
+                        <button type="submit">Submit</button>
+                    </form>
+                </Context.Provider>
 
                 <h4>Emergency Contact</h4>
                 <EmergencyContactRadioButtonsGroup />

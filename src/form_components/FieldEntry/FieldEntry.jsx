@@ -1,12 +1,14 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Context  from '../../components/registration/Context'
 
-const FieldEntry = ({ title }) => {
+const FieldEntry = ({ title, name, onChange }) => {
 
-  const handleChange = (e) => {
-    console.log(e.target.value)
-  }
+  const contextData = useContext(Context)
+
+  // console.log('contextData', contextData)
+
   return (
     <Box
       component="form"
@@ -16,7 +18,14 @@ const FieldEntry = ({ title }) => {
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label={title} variant="outlined" onChange={handleChange} />
+      <TextField 
+        id="outlined-basic" 
+        label={title} 
+        variant="outlined" 
+        name={name}
+        value={contextData[name]}   
+        onChange={(e) => onChange(e)}
+      />
     </Box>
   );
 }

@@ -7,7 +7,7 @@ const QRCode = require('qrcode')
 const athlete = require('./routes/athlete');
 const coach = require('./routes/coach');
 const guardian = require('./routes/guardian');
-// const cors = require('cors')
+const cors = require('cors')
 const logger = require('./middlewares/logger')
 const errorHandler = require('./middlewares/error')
 const connectDB = require('./config/db')
@@ -18,9 +18,9 @@ connectDB()
 const app = express()
 
 app.use(bodyParser.json());
-// app.use(cors({
-//   origin: '*'
-// }))
+app.use(cors({
+  origin: '*'
+}))
 
 app.use(logger)
 app.use(errorHandler)
