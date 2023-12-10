@@ -1,0 +1,35 @@
+.coach-contact-info {
+    display: flex;
+    width: 45%;
+    flex-wrap: wrap;
+}
+
+.borderline {
+    border-top: 2px solid #FFA800;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.form {
+    width: 95%;
+    margin: auto; 
+    font-family: "Poppins-Bold", Helvetica;
+}
+
+.input-field {
+    display: inline-block;
+}
+
+.title {
+    color: #FFA800;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 44px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 72px;
+    position: relative;
+    top: 0;
+    width: 1037px;
+    
+}

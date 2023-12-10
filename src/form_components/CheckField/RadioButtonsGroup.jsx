@@ -14,7 +14,7 @@ const RadioButtonsGroup = ({option1, option2}) => {
         defaultValue=""
         name="radio-buttons-group"
       >
-        <FormControlLabel value={option1} control={<Radio />} label={option1} />
+        {/* <FormControlLabel value={option1} control={<Radio />} label={option1} /> */}
         <FormControlLabel value={option2} control={<Radio />} label={option2} />
       </RadioGroup>
     </FormControl>

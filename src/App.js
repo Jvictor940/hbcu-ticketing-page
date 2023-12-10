@@ -1,5 +1,6 @@
 import React from "react";
 import ContactInformation from "./components/registration/ContactInformation";
+import CoachRegistration from "./components/registration/CoachRegistration";
 import AthleteRegistration from "./components/registration/AthleteRegistration";
 import GeneralAdmission from "./components/registration/GeneralAdmission";
 import Checkout from "./components/registration/Checkout";
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/generalAdmission" element={<GeneralAdmission />} />
           <Route exact path="/checkout" element={<Checkout />} />
           <Route exact path="/congrats" element={<Congrats />} />
+          <Route exact path="/coachRegistration" element={<CoachRegistration />} />
         </Routes>
       </Router>
     </div>
