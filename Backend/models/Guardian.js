@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
+const { default: isEmail } = require('validator/lib/isEmail');
 const Schema = mongoose.Schema;
+const validator = require('validator');
 
 const GuardianSchema = new Schema({
     firstName: {
@@ -15,12 +17,13 @@ const GuardianSchema = new Schema({
     email: {
         type: String,
         required: true,
+        validate: (email) => validator.isEmail(email)
     },
     phone: {
         type: String,
         required: true,
-        minLength: [10, 'You must have atleast 10 numbers'],
-        maxLength: [11, 'Maximum amount of numbers is 11'],
+        minLength: [10, 'You must have atleast 10 numbers for your phone number'],
+        maxLength: [11, 'Maximum amount of numbers is 11 for your phone number'],
         match: [/^[0-9]+$/, 'Only Numbers are allowed']
     },
     address: {

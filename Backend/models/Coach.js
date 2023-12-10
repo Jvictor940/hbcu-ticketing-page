@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const validator = require('validator')
 
 const CoachSchema = new Schema({
     firstName: {
@@ -15,8 +16,8 @@ const CoachSchema = new Schema({
     phone: {
         type: String,
         required: true,
-        minLength: [10, 'You must have atleast 10 numbers'],
-        maxLength: [11, 'Maximum amount of numbers is 11'],
+        minLength: [10, 'You must have atleast 10 numbers for your phone number'],
+        maxLength: [11, 'Maximum amount of numbers is 11 for your phone number'],
         match: [/^[0-9]+$/, 'Only Numbers are allowed']
     },
     school: {
@@ -26,7 +27,8 @@ const CoachSchema = new Schema({
     schoolEmail: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        validate: (email) => validator.isEmail(email)
     }
 }, {
     timestamps: true
