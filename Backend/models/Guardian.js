@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { default: isEmail } = require('validator/lib/isEmail');
 const Schema = mongoose.Schema;
 const validator = require('validator');
 
@@ -37,6 +36,13 @@ const GuardianSchema = new Schema({
     }
 }, {
     timestamps: true
+})
+
+GuardianSchema.pre('save', function(next) {
+    this.firstName = this.firstName.toUpperCase().charAt(0) + this.firstName.slice(1)
+    this.lastName = this.lastName.toUpperCase().charAt(0) + this.lastName.slice(1)
+
+    next()
 })
 
 module.exports = mongoose.model('Guardian', GuardianSchema);

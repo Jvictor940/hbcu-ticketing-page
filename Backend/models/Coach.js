@@ -34,4 +34,11 @@ const CoachSchema = new Schema({
     timestamps: true
 })
 
+CoachSchema.pre('save', function(next) {
+    this.firstName = this.firstName.toUpperCase().charAt(0) + this.firstName.slice(1)
+    this.lastName = this.lastName.toUpperCase().charAt(0) + this.lastName.slice(1)
+
+    next()
+})
+
 module.exports = mongoose.model('Coach', CoachSchema);
