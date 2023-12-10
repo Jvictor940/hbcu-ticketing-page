@@ -2,25 +2,34 @@ const Guardian = require('../models/Guardian')
 
 // For '/guardian' endpoints
 const getGuardians = async (req, res, next) => {
+
     // query parameter
+    const filter = {};
+    const options = {};
     if (Object.keys(req.query).length) {
         const {
+            sortByFirstName,
+            sortByLastName,
             firstName,
-            lastName
+            lastName,
+            limit
         } = req.query
 
-        const filter = [];
+        if (firstName) filter.firstName = true
+        if (lastName) filter.lastName = true
 
-        if (firstName) filter.push(firstName)
-        if (lastName) filter.push(lastName)
+        if (limit) options.limit = limit
 
-        for(const query of filter){
-            console.log(`Searching general admission by ${query}`)
+        if (sortByFirstName) options.sort = {
+            firstName: sortByFirstName
+        }
+        if (sortByLastName) options.sort = {
+            lastName: sortByLastName
         }
     }
 
     try {
-        const guardians = await Guardian.find()
+        const guardians = await Guardian.find({}, filter, options)
 
         res
         .status(200)

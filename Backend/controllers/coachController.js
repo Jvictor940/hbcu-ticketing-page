@@ -3,24 +3,40 @@ const Coach = require('../models/Coach')
 // For '/coach' endpoints
 const getCoaches = async (req, res, next) => {
     // query parameter
+    const filter = {};
+    const options = {};
     if (Object.keys(req.query).length) {
         const {
+            sortByFirstName,
+            sortByLastName,
+            sortBySchool,
             firstName,
-            lastName
+            lastName, 
+            school,
+            limit
         } = req.query
 
-        const filter = [];
 
-        if (firstName) filter.push(firstName)
-        if (lastName) filter.push(lastName)
 
-        for(const query of filter){
-            console.log(`Searching coach by ${query}`)
+        if (firstName) filter.firstName = true
+        if (lastName) filter.lastName = true
+        if (school) filter.school = true
+
+        if (limit) options.limit = limit
+
+        if (sortByFirstName) options.sort = {
+            firstName: sortByFirstName
+        }
+        if (sortByLastName) options.sort = {
+            lastName: sortByLastName
+        }
+        if (sortBySchool) options.sort = {
+            school: sortBySchool
         }
     }
 
     try {
-        const coaches = await Coach.find()
+        const coaches = await Coach.find({}, filter, options)
         
         res
         .status(200)

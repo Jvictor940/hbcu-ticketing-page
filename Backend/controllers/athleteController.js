@@ -4,24 +4,52 @@ const Athlete = require('../models/Athlete')
 
 const getAthletes = async (req, res, next) => {
     // query parameter
+    const filter = {}
+    const options = {}
     if (Object.keys(req.query).length) {
         const {
+            sortByFirstName,
+            sortByLastName,
+            sortByGrade,
+            sortByGender,
+            sortByPosition,
             firstName,
-            lastName
+            lastName,
+            grade,
+            gender, 
+            position,
+            limit
         } = req.query
 
         const filter = [];
 
-        if (firstName) filter.push(firstName)
-        if (lastName) filter.push(lastName)
+        if (firstName) filter.firstName = true;
+        if (lastName) filter.lastName = true;
+        if (grade) filter.grade = true;
+        if (gender) filter.gender = true;
+        if (position) filter.position = true;
 
-        for(const query of filter){
-            console.log(`Searching athlete by ${query}`)
+        if (limit) options.limit = limit
+        
+        if (sortByFirstName) options.sort = {
+            firstName: sortByFirstName
+        }
+        if (sortByLastName) options.sort = {
+            lastName: sortByLastName
+        }
+        if (sortByGrade) options.sort = {
+            grade: sortByGrade
+        }
+        if (sortByGender) options.sort = {
+            gender: sortByGender
+        }
+        if (sortByPosition) options.sort = {
+            position: sortByPosition
         }
     }
 
     try {
-        const athletes = await Athlete.find()
+        const athletes = await Athlete.find({}, filter, options)
 
         res
         .status(200)
