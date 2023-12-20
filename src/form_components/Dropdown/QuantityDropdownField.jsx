@@ -39,38 +39,38 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function QuantityDropdownField() {
-  const [number, setNumber] = React.useState('');
+
+const QuantityDropdownField = ({ onQuantityChange, day, price, type }) => {
   const handleChange = (event) => {
-    setNumber(event.target.value);
+    // Pass the selected quantity and day to the parent component
+    onQuantityChange({
+      quantity: event.target.value,
+      day: day,
+      price: price,
+      type: type,
+    });
   };
 
   return (
     <div>
       <FormControl sx={{ m: 1 }} variant="standard">
-        <InputLabel id="demo-customized-select-label">Quantity</InputLabel>
+        <InputLabel id={`demo-customized-select-label-${day}`}>Quantity</InputLabel>
         <Select
-          labelId="demo-customized-select-label"
-          id="demo-customized-select"
-          value={number}
+          labelId={`demo-customized-select-label-${day}`}
           onChange={handleChange}
+          defaultValue={"None"}
           input={<BootstrapInput />}
         >
-          <MenuItem value="">
+          <MenuItem value="None">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={1}>1</MenuItem>
-          <MenuItem value={2}>2</MenuItem>
-          <MenuItem value={3}>3</MenuItem>
-          <MenuItem value={4}>4</MenuItem>
-          <MenuItem value={5}>5</MenuItem>
-          <MenuItem value={6}>6</MenuItem>
-          <MenuItem value={7}>7</MenuItem>
-          <MenuItem value={8}>8</MenuItem>
-          <MenuItem value={9}>9</MenuItem>
-          <MenuItem value={10}>10</MenuItem>
+          {[...Array(10).keys()].map((num) => (
+            <MenuItem key={num + 1} value={num + 1}>{num + 1}</MenuItem>
+          ))}
         </Select>
       </FormControl>
     </div>
   );
-}
+};
+
+export default QuantityDropdownField;

@@ -1,9 +1,11 @@
 import React, { useState, useEffect} from "react";
-import PrevNxtButtons from "../../form_components/Buttons/PrevNxtButtons";
-import { useNavigate } from "react-router-dom";
+// import PrevNxtButtons from "../../form_components/Buttons/PrevNxtButtons";
+// import { useNavigate } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
+import CheckoutCart from "./CheckoutCart";
+import { useLocation } from "react-router-dom"
 import "./Checkout.css";
 
 
@@ -11,15 +13,16 @@ const stripePromise = loadStripe("pk_test_51OHJxTJ7ju9CTKiIWLzNBfM9SKAolS5EeALi4
 
 const Checkout = () => {
     const [clientSecret, setClientSecret] = useState("");
-    const navigate = useNavigate()
+    const location = useLocation();
+    // const navigate = useNavigate()
 
-    const congrats = () => {
-        navigate('/congrats')
-    }
+    // const congrats = () => {
+    //     navigate('/congrats')
+    // }
 
-    const generalAdmission = () => {
-        navigate('/generalAdmission')
-    }
+    // const generalAdmission = () => {
+    //     navigate('/generalAdmission')
+    // }
 
     useEffect(() => {
       // Create PaymentIntent as soon as the page loads
@@ -44,6 +47,10 @@ const Checkout = () => {
       appearance,
     };
 
+    //Extract cart and total price from location state
+    const cart = location.state?.cart || [];
+    const totalPrice = location.state?.totalPrice || 0;
+
     return(
         <div id='checkout-page' >
             {clientSecret && (
@@ -51,6 +58,11 @@ const Checkout = () => {
                     <CheckoutForm />
                 </Elements>
             )}
+
+            <aside>
+                Checkout Info Goes Here
+                <CheckoutCart cart={cart} totalPrice={totalPrice}/>
+            </aside>
             {/* <PrevNxtButtons prevPage={generalAdmission} nxtPage={congrats} nextBtn='Place Order' /> */}
         </div>
     )
