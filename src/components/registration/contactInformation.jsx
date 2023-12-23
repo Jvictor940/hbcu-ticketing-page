@@ -19,6 +19,7 @@ const ContactInformation = () => {
       })
     
       const handleInputChange = (e) => {
+        // console.log('inside handleInputChange')
         console.log('e.target.name' ,e.target.name)
         console.log('e.target.value' ,e.target.value)
         setGuardianData({
@@ -26,6 +27,10 @@ const ContactInformation = () => {
             [e.target.name]: e.target.value
         })
         console.log('guardianData', guardianData)
+    }
+
+    const handleRadioButtonsCheck = (e) => {
+        console.log('checked?', e.target.checked)
     }
     
     const handleSubmit = async (e) => {
@@ -65,17 +70,52 @@ const ContactInformation = () => {
 
                 <h1 className="title">Contact Information</h1>
                 <h4>Guardian Information</h4>
+
                 <Context.Provider value={guardianData}>
-                    <form onSubmit={handleSubmit} >
                         <div className="guardian-information" >
-                            <FieldEntry className="input-field" title='First Name' value={guardianData.firstName} onChange={handleInputChange}  name='firstName' />
-                            <FieldEntry className="input-field" title='Last Name'value={guardianData.lastName} onChange={handleInputChange}  name='lastName' />
-                            <FieldEntry className="input-field" title='Email'value={guardianData.email} onChange={handleInputChange}  name='email' />
-                            <FieldEntry className="input-field" title='Phone'value={guardianData.phone} onChange={handleInputChange} name='phone' />
-                            <FieldEntry className="input-field" title='Address'value={guardianData.address} onChange={handleInputChange}  name='address' />
+
+                            <FieldEntry 
+                            className="input-field" 
+                            title='First Name' 
+                            value={guardianData.firstName} 
+                            onChange={handleInputChange}  
+                            name='firstName' 
+                            />
+
+                            <FieldEntry 
+                            className="input-field" 
+                            title='Last Name' 
+                            value={guardianData.lastName} 
+                            onChange={handleInputChange}  
+                            name='lastName' 
+                            />
+
+                            <FieldEntry 
+                            className="input-field" 
+                            title='Email' 
+                            value={guardianData.email} 
+                            onChange={handleInputChange}  
+                            name='email' 
+                            />
+
+                            <FieldEntry 
+                            className="input-field" 
+                            title='Phone' 
+                            value={guardianData.phone} 
+                            onChange={handleInputChange} 
+                            name='phone' 
+                            />
+
+                            <FieldEntry 
+                            className="input-field" 
+                            title='Address' 
+                            value={guardianData.address} 
+                            onChange={handleInputChange}  
+                            name='address' 
+                            />
+
                         </div>
-                        <button type="submit">Submit</button>
-                    </form>
+                        <button type="submit" onClick={handleSubmit}>Submit</button>
                 </Context.Provider>
 
                 <h4>Emergency Contact</h4>
@@ -88,7 +128,7 @@ const ContactInformation = () => {
                 facilis consectetur nisi saepe omnis! Nesciunt, sunt! Accusantium provident autem tenetur?
                 </p>
 
-                <RadioButtonsGroup option1='I Consent' option2='I Do Not Consent' />
+                <RadioButtonsGroup option1='I Consent' option2='I Do Not Consent' onClick={handleRadioButtonsCheck} />
 
                 <PrevNxtButtons nxtPage={athleteRegistrationPage} nextBtn='Continue to Athlete Registration' />
             </div>

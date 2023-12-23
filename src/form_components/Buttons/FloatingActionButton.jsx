@@ -12,7 +12,8 @@ import RadioButtonsGroup from '../CheckField/RadioButtonsGroup';
 
  const FloatingActionButtons = () => {
     const [fieldCount, setFieldCount] = useState(1); // keeps track of the number of input fields we want to render
-    const [athleteInputValues, setAthleteInputValues] = useState({}); // This state variable is an object that keeps track of the values entered in each input field. It uses field names like field1, field2, etc.
+    // const [athleteInputValues, setAthleteInputValues] = useState({}); // This state variable is an object that keeps track of the values entered in each input field. It uses field names like field1, field2, etc.
+    // const [cart, setCart] = useState([]);
 
     const handleAddAthleteField = () => {
         setFieldCount(prevCount => prevCount + 1);
@@ -22,17 +23,39 @@ import RadioButtonsGroup from '../CheckField/RadioButtonsGroup';
         setFieldCount(prevCount => prevCount - 1)
     }
     
-    const handleAthleteInputChange = (fieldName, value) => {
-        setAthleteInputValues(prevValues => ({
-            ...prevValues,
-            [fieldName]: value,
-        })); 
-    }; // This function is called when the user types in an input field. It updates the inputValues state to keep track of the values entered in each field.
+    // const handleAthleteInputChange = (fieldName, value) => {
+    //     setAthleteInputValues(prevValues => ({
+    //         ...prevValues,
+    //         [fieldName]: value,
+    //     })); 
+    // }; // This function is called when the user types in an input field. It updates the inputValues state to keep track of the values entered in each field.
     
-    const handleAthleteChange = (e) => {
-        e.preventDefault()
-        console.log(e.target.value)
-    }
+    // const handleAthleteChange = (e) => {
+    //     e.preventDefault()
+    //     console.log(e.target.value)
+    // }
+
+    // const handleAddToCart = () => {
+    //     //validate Athlete Details
+    //     const { firstName, lastName, email, phone, address } = athleteInputValues
+    //     console.log('firstName:', firstName);
+    //     console.log('lastName:', lastName);
+    //     console.log('email:', email);
+    //     console.log('phone:', phone);
+    //     console.log('address:', address);
+    //     if (firstName && lastName && email && phone && address) {
+    //         console.log('cart', cart)
+    //         const athleteItem = {
+    //             label: `${fieldCount} Athlete Ticket(s)`,
+    //             price: 4000,
+    //             type: 'Athlete Ticket'
+    //         };
+
+    //         //Update the cart state
+    //         setCart(fieldCount);
+    //         console.log('athleteItem', athleteItem)
+    //     }
+    // };
     
     const renderInputFields = () => {
         const athleteInputFields = [];
@@ -86,6 +109,7 @@ import RadioButtonsGroup from '../CheckField/RadioButtonsGroup';
             </Fab>
             <p className='add-athlete-txt'>Add Another Athlete</p>
         </div>
+        {/* <button onClick={handleAddToCart}>Add To Cart</button> */}
     </Box>
   );
 }

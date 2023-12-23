@@ -24,7 +24,7 @@ const FieldEntry = ({ title, name, onChange }) => {
         variant="outlined" 
         name={name}
         // value={contextData[name]}   
-        // onChange={(e) => onChange(e)}
+        onChange={(e) => onChange(e)}
       />
     </Box>
   );
