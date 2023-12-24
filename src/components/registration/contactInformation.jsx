@@ -47,7 +47,7 @@ const ContactInformation = () => {
             const response = await axios.post('http://localhost:4000/guardian', guardianData);
             console.log( 'responseData',response.data); 
         } catch (err) {
-            console.log('Error submitting form', err)
+            console.log('Error submitting form', err.response)
         }
     }
 
@@ -109,7 +109,8 @@ const ContactInformation = () => {
                             <FieldEntry 
                             className="input-field" 
                             title='First Name' 
-                            value={guardianData.firstName} 
+                            value={guardianData.firstName}
+                            dataSource='guardian' 
                             onChange={handleInputChange}  
                             name='firstName' 
                             />
@@ -117,7 +118,8 @@ const ContactInformation = () => {
                             <FieldEntry 
                             className="input-field" 
                             title='Last Name' 
-                            value={guardianData.lastName} 
+                            value={guardianData.lastName}
+                            dataSource='guardian' 
                             onChange={handleInputChange}  
                             name='lastName' 
                             />
@@ -125,7 +127,8 @@ const ContactInformation = () => {
                             <FieldEntry 
                             className="input-field" 
                             title='Email' 
-                            value={guardianData.email} 
+                            value={guardianData.email}
+                            dataSource='guardian' 
                             onChange={handleInputChange}  
                             name='email' 
                             />
@@ -133,7 +136,8 @@ const ContactInformation = () => {
                             <FieldEntry 
                             className="input-field" 
                             title='Phone' 
-                            value={guardianData.phone} 
+                            value={guardianData.phone}
+                            dataSource='guardian' 
                             onChange={handleInputChange} 
                             name='phone' 
                             />
@@ -141,7 +145,8 @@ const ContactInformation = () => {
                             <FieldEntry 
                             className="input-field" 
                             title='Address' 
-                            value={guardianData.address} 
+                            value={guardianData.address}
+                            dataSource='guardian' 
                             onChange={handleInputChange}  
                             name='address' 
                             />

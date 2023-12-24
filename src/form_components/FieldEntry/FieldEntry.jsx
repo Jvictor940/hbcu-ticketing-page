@@ -3,12 +3,12 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Context  from '../../components/registration/Context'
 
-const FieldEntry = ({ title, name, onChange }) => {
+const FieldEntry = ({ title, name, onChange, dataSource }) => {
 
   const contextData = useContext(Context)
   // const value = contextData[name] || '' // so that our TextField does not initially start as undefined when React renders the component. So we provide a default value. 
-  const guardianData = contextData?.guardianData || {}; // checks if contextData.guardianData exists before accessing its properties, preventing the "Cannot read properties of undefined" error.
-
+  // const guardianData = contextData?.guardianData || {}; // checks if contextData.guardianData exists before accessing its properties, preventing the "Cannot read properties of undefined" error.
+  const data = dataSource === 'guardian' ? contextData?.guardianData : contextData?.athleteInformation
   // console.log('contextData', contextData)
 
   return (
@@ -25,7 +25,7 @@ const FieldEntry = ({ title, name, onChange }) => {
         label={title} 
         variant="outlined" 
         name={name}
-        value={guardianData[name] || ''} // checks if contextData.guardianData exists before accessing its properties, preventing the "Cannot read properties of undefined" error.
+        value={data && data[name] ? data[name] : ''} // checks if contextData.guardianData exists before accessing its properties, preventing the "Cannot read properties of undefined" error.
         onChange={(e) => onChange(e)}
       />
     </Box>

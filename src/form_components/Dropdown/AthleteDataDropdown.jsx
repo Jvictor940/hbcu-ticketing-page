@@ -8,8 +8,9 @@ import { gender, position, size, grade } from './athleteData';
 import {v4 as uuidv4 } from 'uuid'
 
 
-const AthleteDataDropdown = ({ title }) => {
+const AthleteDataDropdown = ({ title, name,  onAthleteDropdownChange }) => {
   const [dataType, setDataType] = useState([])
+  const [field, setField] = useState('');
 
   useEffect(() => {
       if (title === 'Gender') {
@@ -23,11 +24,10 @@ const AthleteDataDropdown = ({ title }) => {
       }
   }, [])
 
-
-  const [age, setAge] = useState('');
-
-  const handleChange = (event) => {
-    setAge(event.target.value);
+  const handleDropdownChange = (event) => {
+    const { value } = event.target;
+    setField(event.target.value);
+    onAthleteDropdownChange(name, value); // Pass the title and selected value to the parent component
   };
 
   return (
@@ -37,9 +37,9 @@ const AthleteDataDropdown = ({ title }) => {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          value={field}
           label={title}
-          onChange={handleChange}
+          onChange={handleDropdownChange}
         >
 
           {dataType.map((data) => (
