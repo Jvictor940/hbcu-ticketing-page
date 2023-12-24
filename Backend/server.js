@@ -21,6 +21,7 @@ const mg = mailgun.client({username: 'api', key: process.env.MAILGUN_API_KEY || 
 connectDB()
 
 const app = express()
+app.use(express.json()); // no longer need bodyParser, express now includes it's own implementation. I am using this at the top because when I put bodyParser at the bottom it fixed my prior issue with Stripe && Mailgun but gave me issues posting to my backend. I need a parser at the top to parse information before it hits my endpoint. 
 
 app.use(cors({
   origin: '*'

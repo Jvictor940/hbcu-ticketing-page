@@ -43,6 +43,9 @@ const getGuardians = async (req, res, next) => {
 const createGuardian = async (req, res, next) => {
 
     try {
+        const guardianData = req.body;
+        console.log('Received data:', guardianData);
+
         const guardian = await Guardian.create(req.body)
 
         res

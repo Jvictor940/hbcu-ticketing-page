@@ -15,8 +15,12 @@ const ContactInformation = () => {
         lastName: '', 
         email: '', 
         phone: '', 
-        address: '', 
+        address: '',
+        emergencyRadioOption: '',
+        consentRadioOption: ''
       })
+
+      const [selectedOption, setSelectedOption] = useState('')
     
       const handleInputChange = (e) => {
         // console.log('inside handleInputChange')
@@ -29,20 +33,48 @@ const ContactInformation = () => {
         console.log('guardianData', guardianData)
     }
 
-    const handleRadioButtonsCheck = (e) => {
-        console.log('checked?', e.target.checked)
-    }
+    // const requestData = {
+    //     ...guardianData, 
+    //     emergencyRadioOption: selectedOption,
+    //     consentRadioOption: selectedOption
+    // }
+    // console.log('Sending Data:', requestData)
     
     const handleSubmit = async (e) => {
         e.preventDefault();
         
         try {
-            const response = await axios.post('http://localhost:4000/guardian', guardianData)
+            const response = await axios.post('http://localhost:4000/guardian', guardianData);
             console.log( 'responseData',response.data); 
         } catch (err) {
-            console.log('Error submitting form', err.response)
+            console.log('Error submitting form', err)
         }
     }
+
+    // const handleSelectedOption = (e) => {
+    //     const value = e.target.value;
+    //     setGuardianData({
+    //         ...guardianData,
+    //         emergencyRadioOption: value,
+    //         consentRadioOption: value
+    //     })
+    // }
+
+    const handleSelectedOption = (option, type) => {
+        const value = option.target.value
+        if (type === "emergency") {
+            setGuardianData({
+                ...guardianData,
+                emergencyRadioOption: value,
+            });
+        } else if (type === "consent") {
+            setGuardianData({
+                ...guardianData,
+                consentRadioOption: value,
+            });
+        }
+        console.log('guardianData', guardianData)
+    };
 
     const navigate = useNavigate(); 
     
@@ -71,7 +103,7 @@ const ContactInformation = () => {
                 <h1 className="title">Contact Information</h1>
                 <h4>Guardian Information</h4>
 
-                <Context.Provider value={guardianData}>
+                <Context.Provider value={{guardianData, selectedOption}}>
                         <div className="guardian-information" >
 
                             <FieldEntry 
@@ -115,11 +147,10 @@ const ContactInformation = () => {
                             />
 
                         </div>
-                        <button type="submit" onClick={handleSubmit}>Submit</button>
                 </Context.Provider>
 
                 <h4>Emergency Contact</h4>
-                <EmergencyContactRadioButtonsGroup />
+                <EmergencyContactRadioButtonsGroup onEmergencyOptionChange={(option) => handleSelectedOption(option, "emergency")} />
 
                 <h4>Consent</h4>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores, obcaecati delectus, sit doloremque sequi quam aut repudiandae voluptate harum, 
@@ -128,9 +159,9 @@ const ContactInformation = () => {
                 facilis consectetur nisi saepe omnis! Nesciunt, sunt! Accusantium provident autem tenetur?
                 </p>
 
-                <RadioButtonsGroup option1='I Consent' option2='I Do Not Consent' onClick={handleRadioButtonsCheck} />
-
+                <RadioButtonsGroup option1='I Consent' option2='I Do Not Consent' onClick={(option) => handleSelectedOption(option, "consent")} />
                 <PrevNxtButtons nxtPage={athleteRegistrationPage} nextBtn='Continue to Athlete Registration' />
+                        <button type="submit" onClick={handleSubmit}>Submit</button>
             </div>
         </div>
     )

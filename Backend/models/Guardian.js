@@ -31,7 +31,12 @@ const GuardianSchema = new Schema({
     }, 
     consentRadioOption: {
         type: String,
-        enum: ['I do consent', 'I Do Not Consent'],
+        enum: ['I Consent', 'I Do Not Consent'],
+        // required: true
+    },
+    emergencyRadioOption: {
+        type: String,
+        enum: ['I am the Emergency Contact', 'Add an Emergency Contact'],
         // required: true
     }
 }, {
