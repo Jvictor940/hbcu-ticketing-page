@@ -85,6 +85,15 @@ const AthleteRegistration = () => {
         console.log('Birthday:', `${month}/${day}/${year}`)
     }
 
+    const handleTicketChange = (e) => {
+        console.log('Ticket Clicked:', e.target.value)
+        const value = e.target.value;
+        setAthleteInformation((prevAthleteInfo) => ({
+            ...prevAthleteInfo,
+            ticketRadioOption: value
+        }))
+    }
+
 
     return(
         <div className="form" >
@@ -185,7 +194,7 @@ const AthleteRegistration = () => {
                     <FieldEntry title='in'/> */}
 
                     <h5>Ticket Options</h5>
-                    <RadioButtonsGroup option1='Sponsored Athlete | Free' option2='Athlete Ticket' />
+                    <RadioButtonsGroup option1='Sponsored Athlete | Free' option2='Athlete Ticket' onClick={handleTicketChange} />
 
                     <FloatingActionButtons />
                 </Context.Provider>

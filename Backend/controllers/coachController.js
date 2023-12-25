@@ -52,6 +52,7 @@ const createCoach = async (req, res, next) => {
 
     try {
         const coach = await Coach.create(req.body)
+        console.log('Received data:', coach)
         
         res
         .status(201)
