@@ -81,12 +81,12 @@ const AthleteSchema = new Schema({
             'Sponsored Athlete | Free',
             'Athlete Ticket'
         ],
-        // required: true
+        required: true
     }, 
     disclaimerCheckbox: {
         type: Boolean,
         default: false,
-        // required: true
+        required: true
     },
 }, {
     timestamps: true

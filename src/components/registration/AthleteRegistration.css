@@ -14,6 +14,11 @@
     margin-bottom: 40px;
 }
 
+.disclaimer-container {
+    max-height: 200px; /* Adjust height as needed */
+    overflow: auto;
+}  
+
 .form {
     width: 80%;
     margin: auto; 
