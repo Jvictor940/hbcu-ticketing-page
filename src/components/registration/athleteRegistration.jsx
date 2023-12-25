@@ -17,6 +17,7 @@ const AthleteRegistration = () => {
         email: '',
         phone: '',
         address: '',
+        birthday: '', 
         gender: '',
         position: '',
         size: '',
@@ -71,6 +72,18 @@ const AthleteRegistration = () => {
             console.log('Error submitting form', err.response)
         }
     } 
+
+    const handleBirthdayCalendarChange = (e) => {
+        const day = String(e.$D).padStart(2, '0'); // padStart ensures that if it's a single digit it'll put a 0 in front for data consistency
+        const month = String(e.$M + 1).padStart(2, '0'); // Months are zero-based(starts with 0) in JavaScript so we must add 1 to get the correct month. 
+        const year = String(e.$y);
+        const birthdate = `${month}/${day}/${year}`
+        setAthleteInformation((prevAthleteInfo) => ({
+            ...prevAthleteInfo, 
+            birthday: birthdate,
+        }))
+        console.log('Birthday:', `${month}/${day}/${year}`)
+    }
 
 
     return(
@@ -134,7 +147,7 @@ const AthleteRegistration = () => {
                     <h4>Athlete Information</h4>
 
                     <h5>Date of Birth</h5>
-                    <BirthdayCalendar />
+                    <BirthdayCalendar name='birthday' onBirthdayChange={handleBirthdayCalendarChange} />
 
                     <div className="athlete-dropdown">
                         <AthleteDataDropdown 

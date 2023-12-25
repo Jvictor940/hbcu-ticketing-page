@@ -3,10 +3,10 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
-const BirthdayCalendar = () => {
+const BirthdayCalendar = ({ onBirthdayChange }) => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DatePicker />
+      <DatePicker onChange={onBirthdayChange} />
     </LocalizationProvider>
   );
 }

@@ -65,6 +65,7 @@ const createAthlete = async (req, res, next) => {
 
     try {
         const athlete = await Athlete.create(req.body)
+        console.log('Received data:', athlete)
         
         res
         .status(201)
